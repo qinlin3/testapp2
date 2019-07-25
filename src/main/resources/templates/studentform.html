@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="includ/bootstrp :: head"></th:block>
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="includ/bootstrp :: nav"></div>
+
+    <div class="container">
+
+        <!-- Main component for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <h1>学生信息表</h1>
+            <table class="table">
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>mobile</th>
+                    <th>操作</th>
+                </tr>
+                <tr th:each="list : ${list}">
+                    <td th:text="${list.id}"></td>
+                    <td th:text="${list.name}"></td>
+                    <td th:text="${list.mobile}"></td>
+                    <td>
+                        <a th:href="@{student/edit(id=${list.id})}">
+                            <span class="glyphicon glyphicon-edit"></span>
+                        </a>
+                        <a th:href="@{student/delete(id=${list.id})}">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <a th:href="@{student/new}">
+                    <button  class="btn btn-default">Submit</button>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div> <!-- /container -->
+
+
+
+
+</body>
+</html>

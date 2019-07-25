@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <th:block th:include="includ/bootstrp :: head"></th:block>
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="includ/bootstrp :: nav"></div>
+
+<div class="container">
+
+    <!-- Main component for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <h1>学生成绩表</h1>
+        <table class="table">
+            <tr>
+                <th>id</th>
+                <th>studentId</th>
+                <th>courseId</th>
+            </tr>
+            <tr th:each="list : ${list}">
+                <td th:text="${list.id}"></td>
+                <td th:text="${list.studentId}"></td>
+                <td th:text="${list.courseId}"></td>
+            </tr>
+        </table>
+    </div>
+
+</div> <!-- /container -->
+
+
+</body>
+</html>
